@@ -4,9 +4,20 @@ var Schema = mongoose.Schema;
 
 var TraitSchema = new Schema({
 	name: { type: String, required: true },
-	type: { type: String, required: true },
+	type: { type: String, required: true, enum: ["class", "origin"] },
 	description: { type: Number, required: true },
-	sets: [{ type: Number }],
+	sets: [
+		{
+			style: {
+				type: {
+					type: String,
+					enum: ["bronze", "silver", "gold", "chromatic"],
+				},
+				min: { type: Number },
+				max: { type: Number },
+			},
+		},
+	],
 });
 
 // Virtual for traits's URL
