@@ -3,21 +3,18 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var TraitSchema = new Schema({
+	_id: { type: String, required: true},
 	name: { type: String, required: true },
 	type: { type: String, required: true, enum: ["class", "origin"] },
-	description: { type: Number, required: true },
+	description: { type: String, required: true },
 	sets: [
 		{
-			style: {
-				type: {
-					type: String,
-					enum: ["bronze", "silver", "gold", "chromatic"],
-				},
-				min: { type: Number },
-				max: { type: Number },
-			},
+			style: { type: String, enum: ["bronze", "silver", "gold", "chromatic"]},
+			min: { type: Number },
+			max: { type: Number },
 		},
 	],
+	champion: [{ type: String, ref: "Champion" }],
 });
 
 // Virtual for traits's URL
