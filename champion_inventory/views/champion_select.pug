@@ -1,0 +1,32 @@
+extends layout
+
+block css 
+  link(rel='stylesheet', href='/stylesheets/champion_select.css')
+  link(rel='stylesheet', href='/stylesheets/cost.css')
+
+
+block content
+  .champion
+    .champ_selector
+      .search_bar
+        input(type="text", placeholder="Champion Name...")
+        select.sortBy(name="sortBy")
+          option name 
+          option cost 
+      .champ_container 
+        if(data)
+          each champion in data 
+            a.block(href=champion.url, class= ("cost-"+champion.cost))
+              span(class=("cost-"+champion.cost)) $#{champion.cost}
+              img(src=champion.imgURL, alt=champion.name) 
+              p1= champion.name 
+
+    .champ_detail 
+      a asd
+      if(find)
+        .cham_item  
+  
+
+
+
+

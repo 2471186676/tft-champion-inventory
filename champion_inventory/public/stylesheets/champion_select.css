@@ -1,0 +1,93 @@
+.champion {
+	padding: 0 10% 0 10%;
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 10vh;
+}
+
+.champ_selector {
+	height: 100vh;
+	width: 30%;
+	border: 1px solid black;
+	background-color: #dae8e3;
+	margin: 0 5px 0 0;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.champ_selector .search_bar {
+	height: 3rem;
+	display: flex;
+	align-items: center;
+	margin: 3px 3px 3px 3px;
+    padding-left: 10px;
+
+	border: 1px solid black;
+}
+
+.champ_selector .search_bar select {
+    border: 1px solid black;
+}
+
+.champ_selector .search_bar input[type=text]{
+	height: 1rem;
+	width: 70%;
+    margin-right: 5%;
+}
+
+.champ_selector .champ_container {
+	margin: 3px;
+	overflow: scroll;
+	border: 1px solid black;
+	height: 100%;
+    padding: 4px;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	gap: 4px;
+}
+
+.champ_selector .block {
+    position: relative;
+	font-size: 10px;
+	width: 50px;
+    height: 65px;
+	border-width: 3px;
+	border-style: solid;
+	border-radius: 2px;
+    text-decoration: none;
+
+    display:inline-block;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    /* white-space: nowrap; */
+}
+
+.champ_selector .block span {
+    font-size: 0.5rem;
+	position: absolute;
+    right: 0;
+	color: white;
+	text-shadow: -1px 0 2px #000, 0 1px 2px #000, 1px 0 2px #000,
+		0 -1px 2px #000;
+}
+
+.champ_selector .block img {
+	height: 50px;
+}
+
+.champ_selector .block p1 {
+    font-weight: bold;
+    color: black;
+}
+
+.champ_detail {
+	width: 70%;
+	border: 1px solid black;
+	background-color: #dae8e3;
+	margin: 0 0 0 5px;
+}

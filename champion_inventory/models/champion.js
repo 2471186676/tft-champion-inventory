@@ -10,8 +10,12 @@ var ChampionSchema = new Schema({
 });
 
 // Virtual for champion's URL
+ChampionSchema.virtual("imgURL").get(function () {
+	return "/images/champions/" + this._id + ".png";
+});
+
 ChampionSchema.virtual("url").get(function () {
-	return "/catalog/champion/" + this._id;
+	return "/page/champion/" + this._id;
 });
 
 //Export model

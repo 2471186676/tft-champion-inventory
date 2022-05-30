@@ -1,8 +1,63 @@
+:root{
+  --main-color: #CAD0E2;
+  --sub-color: #114B5F;
+  --sub-color-lighter: #1d7e9e;
+  --default-padding:2%;
+}
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: var(--main-color);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
 }
 
-a {
-  color: #00B7FF;
+.site_header{
+  height: 10vh;
+  background-color: var(--sub-color);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20vh;
+}
+
+.site_header a{
+  height: 50%;
+}
+
+.site_header img{
+  height: 100%;
+}
+
+.site_header .nav{
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(0, 0, 0, 0.249);
+}
+
+.site_header .nav button{
+  height: 100%;
+  width: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #24d5a0;
+}
+
+.site_header .nav button:hover{
+  background-color: var(--sub-color-lighter);
+}
+
+.footer{
+  height: 100px;
 }

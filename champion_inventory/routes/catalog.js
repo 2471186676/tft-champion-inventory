@@ -9,7 +9,7 @@ let trait_controller = require('../controller/traitController');
 // champion router
 
 // // GET all champion
-router.get('/page/champion', champion_controller.champion_list); 
+router.get('/page/champion', champion_controller.champion_viewer); 
 // // POST to update champion
 // router.post('/champion/:id/update', champion_controller.update_post); 
 // router.get('/champion/:id/update', champion_controller.update_get); 
