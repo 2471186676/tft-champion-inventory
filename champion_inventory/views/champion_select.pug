@@ -4,19 +4,21 @@ block css
   link(rel='stylesheet', href='/stylesheets/champion_select.css')
   link(rel='stylesheet', href='/stylesheets/cost.css')
 
+block script 
+  script(src="/javascripts/champ_sort.js") 
 
 block content
   .champion
     .champ_selector
       .search_bar
-        input(type="text", placeholder="Champion Name...")
+        input(type="text", placeholder="Champion Name...", class="searchBar")
         select.sortBy(name="sortBy")
-          option name 
-          option cost 
+          option(value="name", selected) name 
+          option(value="cost") cost 
       .champ_container 
         if(data)
           each champion in data 
-            a.block(href=champion.url, class= ("cost-"+champion.cost))
+            a.block(href=champion.url, class= ("cost-"+champion.cost), id=champion.name)
               span(class=("cost-"+champion.cost)) $#{champion.cost}
               img(src=champion.imgURL, alt=champion.name) 
               p1= champion.name 

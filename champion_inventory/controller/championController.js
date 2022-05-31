@@ -6,6 +6,7 @@ const champion = require("../models/champion");
 
 exports.champion_viewer = function (req, res, next) {
 	Champion.find()
+		.sort([["name", "ascending"]])
 		.exec(function (err, result) {
 			if (err) {
 				return next(err);
