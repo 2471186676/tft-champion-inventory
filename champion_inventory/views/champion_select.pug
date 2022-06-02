@@ -20,11 +20,28 @@ block content
           each champion in data 
             a.block(href=champion.url, class= ("cost-"+champion.cost), id=champion.name)
               span(class=("cost-"+champion.cost)) $#{champion.cost}
-              img(src=champion.imgURL, alt=champion.name) 
+              img(src=(champion.portraitURL), alt=champion.name) 
               p1= champion.name 
 
     .champ_detail 
-      a asd
+      if(champion)
+        each champ in champion 
+          .champ_banner 
+            .banner_background(style=("background-image: url('"+champ.bannerURL+"')"), class=("cost-"+champ.cost))
+              span= champ.name
+            .banner_detail_trait  
+              span Trait:
+              .banner_traits
+                each t in champ.traitFormatted
+                  .banner_trait 
+                    a(href="")
+                      img(src=("/images/traits/"+t+".svg"), alt="trait")
+                    span= t
+
+
+         
+      else 
+        a none
       if(find)
         .cham_item  
   

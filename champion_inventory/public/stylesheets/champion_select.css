@@ -17,23 +17,23 @@
 }
 
 .champ_selector .search_bar {
-	height: 3rem;
+	min-height: 3rem;
 	display: flex;
 	align-items: center;
 	margin: 3px 3px 3px 3px;
-    padding-left: 10px;
+	padding-left: 10px;
 
 	border: 1px solid black;
 }
 
 .champ_selector .search_bar select {
-    border: 1px solid black;
+	border: 1px solid black;
 }
 
-.champ_selector .search_bar input[type=text]{
+.champ_selector .search_bar input[type="text"] {
 	height: 1rem;
 	width: 70%;
-    margin-right: 5%;
+	margin-right: 5%;
 }
 
 .champ_selector .champ_container {
@@ -41,36 +41,34 @@
 	overflow: scroll;
 	border: 1px solid black;
 	height: 100%;
-    padding: 4px;
-
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
+	padding: 4px;
 
 	gap: 4px;
+	row-gap: 4px;
 }
 
 .champ_selector .block {
-    position: relative;
+	position: relative;
 	font-size: 10px;
 	width: 50px;
-    height: 65px;
+	height: 65px;
 	border-width: 3px;
 	border-style: solid;
 	border-radius: 2px;
-    text-decoration: none;
+	text-decoration: none;
 
-    display:inline-block;
-    overflow:hidden;
-    text-overflow: ellipsis;
-    text-align: left;
-    /* white-space: nowrap; */
+	display: inline-block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: left;
+
+	margin: 4px;
 }
 
 .champ_selector .block span {
-    font-size: 0.5rem;
+	font-size: 0.5rem;
 	position: absolute;
-    right: 0;
+	right: 0;
 	color: white;
 	text-shadow: -1px 0 2px #000, 0 1px 2px #000, 1px 0 2px #000,
 		0 -1px 2px #000;
@@ -81,8 +79,8 @@
 }
 
 .champ_selector .block p1 {
-    font-weight: bold;
-    color: black;
+	font-weight: bold;
+	color: black;
 }
 
 .champ_detail {
@@ -90,4 +88,63 @@
 	border: 1px solid black;
 	background-color: #dae8e3;
 	margin: 0 0 0 5px;
+}
+
+.champ_banner {
+	width: 100%;
+	height: 25%;
+	position: relative;
+}
+
+.champ_banner .banner_background {
+	position: relative;
+	background-color: #000;
+	background-position: top;
+	background-size: cover;
+	height: 130px;
+
+	color: white;
+	text-shadow: -1px 0 2px #000, 0 1px 2px #000, 1px 0 2px #000,
+		0 -1px 2px #000;
+	font-size: larger;
+	font-weight: bolder;
+
+	border-width: 2px;
+	border-style: solid;
+}
+
+.champ_banner .banner_background span{
+	position: absolute;
+	top: 45%;
+	margin-left: 1rem;
+}
+
+.banner_detail_trait{
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	padding: 5px;
+	background-color: rgba(118, 118, 118, 0.723);	
+	color: white;
+	height: 25%;
+
+	border: 1px solid rgb(80, 80, 80);
+}
+
+.banner_detail_trait .banner_traits{
+	display: flex;
+	flex-direction: row;
+}
+
+.banner_detail_trait .banner_trait{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap:4px;
+	margin-right: 1rem;
+}
+
+.banner_detail_trait .banner_trait img{
+	width: 1rem;
+	filter: invert(100%);
 }

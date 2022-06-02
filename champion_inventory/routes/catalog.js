@@ -10,6 +10,7 @@ let trait_controller = require('../controller/traitController');
 
 // // GET all champion
 router.get('/page/champion', champion_controller.champion_viewer); 
+router.get('/page/champion/:id', champion_controller.champion_viewer); 
 // // POST to update champion
 // router.post('/champion/:id/update', champion_controller.update_post); 
 // router.get('/champion/:id/update', champion_controller.update_get); 

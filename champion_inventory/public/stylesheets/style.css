@@ -45,19 +45,21 @@ body {
   background-color: rgba(0, 0, 0, 0.249);
 }
 
-.site_header .nav button{
+.site_header .nav .link{
   height: 100%;
   width: 10rem;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #24d5a0;
+  text-decoration: none;
 }
 
-.site_header .nav button:hover{
+.site_header .nav .link:hover{
   background-color: var(--sub-color-lighter);
 }
 
 .footer{
   height: 100px;
+  background-color: var(--sub-color);
 }
