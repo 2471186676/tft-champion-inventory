@@ -14,7 +14,7 @@ var TraitSchema = new Schema({
 			max: { type: Number },
 		},
 	],
-	champion: [{ type: String, ref: "Champion" }],
+	champion: [{ type: String, ref: "Champion", unique:true }],
 });
 
 // Virtual for traits's URL
@@ -24,6 +24,10 @@ TraitSchema.virtual("url").get(function () {
 
 TraitSchema.virtual("type_options").get(function () {
 	return ["class", "origin"];
+});
+
+TraitSchema.virtual("svgURL").get(function () {
+	return "/images/traits/"+this.name.toLowerCase()+".svg"
 });
 
 //Export model

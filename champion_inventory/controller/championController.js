@@ -5,7 +5,7 @@ const { body, validationResult } = require("express-validator");
 const champion = require("../models/champion");
 
 exports.champion_viewer = function (req, res, next) {
-	async.parallel(
+	async.series(
 		{
 			all: function (callback) {
 				Champion.find()
@@ -14,6 +14,9 @@ exports.champion_viewer = function (req, res, next) {
 			},
 			theOne: function (callback) {
 				champion.find({ _id: req.params.id }).exec(callback);
+			},
+			trait: function(callback){
+				Trait.find({champion: req.params.id}).exec(callback)
 			}
 		},
 		function (err, result) {
@@ -24,7 +27,8 @@ exports.champion_viewer = function (req, res, next) {
 			res.render("champion_select", {
 				title: "LolChess.gg",
 				data: result.all,
-				champion: result.theOne
+				champion: result.theOne[0],
+				traits: result.trait
 			});
 		}
 	);

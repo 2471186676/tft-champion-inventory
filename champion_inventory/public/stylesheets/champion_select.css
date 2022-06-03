@@ -104,47 +104,57 @@
 	height: 130px;
 
 	color: white;
-	text-shadow: -1px 0 2px #000, 0 1px 2px #000, 1px 0 2px #000,
-		0 -1px 2px #000;
-	font-size: larger;
-	font-weight: bolder;
 
 	border-width: 2px;
 	border-style: solid;
 }
 
-.champ_banner .banner_background span{
+.champ_banner .banner_detail {
+	height: inherit;
 	position: absolute;
-	top: 45%;
-	margin-left: 1rem;
-}
 
-.banner_detail_trait{
+	background: rgb(0, 0, 0);
+	background: linear-gradient(
+		90deg,
+		rgba(0, 0, 0, 1) 10%,
+		rgba(255, 255, 255, 0) 50%
+	);
+
 	display: flex;
-	flex-direction: column;
-	gap: 4px;
-	padding: 5px;
-	background-color: rgba(118, 118, 118, 0.723);	
-	color: white;
-	height: 25%;
+	align-items: center;
+	padding-left: 2.5%;
 
-	border: 1px solid rgb(80, 80, 80);
+	font-weight: bold;
+	font-size: larger;
 }
 
-.banner_detail_trait .banner_traits{
+.champ_banner .banner_traits{
+	position: absolute;
+	right: 0;
+	padding: 0 1rem 0 1rem;
+	width: 7.5rem;
+	height: inherit;
+
+	background-color: #2c2e37;
+
+	font-size: 10px;
+}
+
+.champ_banner .banner_traits .banner_trait{
+	padding: 1rem 0 0 0;
+}
+
+.champ_banner .banner_traits .trait{
 	display: flex;
 	flex-direction: row;
-}
-
-.banner_detail_trait .banner_trait{
-	display: flex;
-	justify-content: center;
 	align-items: center;
-	gap:4px;
-	margin-right: 1rem;
+	gap: 0.5rem;
 }
 
-.banner_detail_trait .banner_trait img{
+.champ_banner .banner_traits .trait img{
 	width: 1rem;
+	height: 1rem;
 	filter: invert(100%);
 }
+
+

@@ -25,18 +25,20 @@ block content
 
     .champ_detail 
       if(champion)
-        each champ in champion 
-          .champ_banner 
-            .banner_background(style=("background-image: url('"+champ.bannerURL+"')"), class=("cost-"+champ.cost))
-              span= champ.name
-            .banner_detail_trait  
-              span Trait:
-              .banner_traits
-                each t in champ.traitFormatted
-                  .banner_trait 
-                    a(href="")
-                      img(src=("/images/traits/"+t+".svg"), alt="trait")
-                    span= t
+        .champ_banner 
+          .banner_background(style=("background-image: url('"+champion.bannerURL+"')"), class=("cost-"+champion.cost))
+            .banner_detail
+              p #{champion.name} 
+            .banner_traits
+              .banner_trait 
+                span Trait:
+                each trait in traits
+                  .trait
+                    a(href=trait.url)
+                      img(src= trait.svgURL)
+                    p= trait.name
+        .champ_ablity_detail 
+          span not implemented
 
 
          

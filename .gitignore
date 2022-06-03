@@ -4,3 +4,4 @@ adddata.js
 .DS_Store
 tft.drawio
 /champion_inventory/download.js
+/champion_inventory/addChampToTrait.js
