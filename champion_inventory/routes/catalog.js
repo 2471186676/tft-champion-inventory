@@ -15,7 +15,7 @@ router.get('/page/champion/:id', champion_controller.champion_viewer);
 // router.post('/champion/:id/update', champion_controller.update_post); 
 // router.get('/champion/:id/update', champion_controller.update_get); 
 // // POST to add new champion
-// router.post('/champion/add', champion_controller.add_post);
+router.get('/champion/add', champion_controller.add_post);
 // router.get('/champion/add', champion_controller.add_get);   
 // // POST to delete champion
 // router.post('/champion/:id/delete', champion_controller.delete_post);

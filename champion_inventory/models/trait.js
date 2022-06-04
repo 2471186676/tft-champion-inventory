@@ -30,5 +30,13 @@ TraitSchema.virtual("svgURL").get(function () {
 	return "/images/traits/"+this.name.toLowerCase()+".svg"
 });
 
+TraitSchema.virtual("champFormat").get(function () {
+	let format = [];
+	for(let i = 0; i < this.champion.length; i++){
+		format.push(this.champion[i].split("_")[1]);
+	}
+	return format
+});
+
 //Export model
 module.exports = mongoose.model("Trait", TraitSchema);

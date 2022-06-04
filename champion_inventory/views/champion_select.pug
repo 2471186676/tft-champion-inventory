@@ -6,6 +6,7 @@ block css
 
 block script 
   script(src="/javascripts/champ_sort.js") 
+  script(src="/javascripts/getAndCopy.js") 
 
 block content
   .champion
@@ -18,10 +19,11 @@ block content
       .champ_container 
         if(data)
           each champion in data 
-            a.block(href=champion.url, class= ("cost-"+champion.cost), id=champion.name)
+            a.block(href=champion.url, class= ("cost-"+champion.cost), id=champion._id)
               span(class=("cost-"+champion.cost)) $#{champion.cost}
               img(src=(champion.portraitURL), alt=champion.name) 
               p1= champion.name 
+
 
     .champ_detail 
       if(champion)
@@ -33,12 +35,26 @@ block content
               .banner_trait 
                 span Trait:
                 each trait in traits
-                  .trait
-                    a(href=trait.url)
-                      img(src= trait.svgURL)
+                  a(href=trait.url, class="trait")
+                    img(src= trait.svgURL)
                     p= trait.name
-        .champ_ablity_detail 
-          span not implemented
+        .champ_ability
+          p champion ability not implemented 
+          p cant find permade data
+          p rito api sucks
+        .champ_trait_relation 
+          if(traits)
+            .header 
+              span trait:
+            each trait in traits 
+              .content
+                .name
+                  span #{trait.name}:
+                .detail 
+                  span= trait.description
+                .relation
+                  each champ in trait.champion
+                    a.block(id=champ)
 
 
          

@@ -16,7 +16,7 @@ ChampionSchema.virtual("portraitURL").get(function () {
 });
 
 ChampionSchema.virtual("bannerURL").get(function() {
-	return "/images/banner/" + this.name + ".jpg";
+	return "/images/banner/" + this._id + ".jpg";
 })
 
 ChampionSchema.virtual("url").get(function () {

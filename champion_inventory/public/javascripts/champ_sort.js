@@ -20,7 +20,6 @@ let byName = (array) => {
 		return 0;
 	});
 
-	console.log(sortedElement);
 	return sortedElement;
 };
 
@@ -53,6 +52,12 @@ let sorting = (e) => {
 	if (champions[0][1].id == undefined) {
 		console.log(champions.splice(0, 1));
 	}
+	// remove add new button
+	for(let i = 0; i < champions.length; i++){
+		if(champions[i][1].id == "addNew"){
+			champions.splice(i,1);
+		}
+	}
 
 	// remove all child node to remake in selected sort method
 	getChampElems.innerHTML = "";
@@ -74,6 +79,7 @@ let sorting = (e) => {
 	} catch (e) {
 		console.log(e);
 	}
+	addNewChampLink();
 };
 
 searchBar.addEventListener("input", (e) => {
@@ -95,6 +101,16 @@ searchBar.addEventListener("input", (e) => {
 		}
 	}
 });
+
+let addNewChampLink = () =>{
+	let link = document.createElement("a");
+	link.href = "/page/champion/add";
+	link.id = "addNew";
+	link.className = "block cost-1";
+	link.innerText= "+";
+
+	getChampElems.appendChild(link)
+}
 
 sorting(sortBy.value);
 sortBy.addEventListener("change", sorting);
