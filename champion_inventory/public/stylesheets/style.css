@@ -1,8 +1,9 @@
 :root{
   --main-color: #b4b9ca;
   --sub-color: #114B5F;
-  --sub-color-lighter: #1d7e9e;
+  --sub-color-lighter: hsl(195, 69%, 37%);
   --default-padding:2%;
+  --sub-background-clor: #cad4d9
 }
 button, input[type="submit"], input[type="reset"] {
 	background: none;

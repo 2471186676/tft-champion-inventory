@@ -20,7 +20,7 @@ ChampionSchema.virtual("bannerURL").get(function() {
 })
 
 ChampionSchema.virtual("url").get(function () {
-	return "/page/champion/" + this._id;
+	return "/page/champions/" + this._id;
 });
 
 ChampionSchema.virtual("traitFormatted").get(function() {

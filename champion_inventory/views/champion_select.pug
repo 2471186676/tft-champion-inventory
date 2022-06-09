@@ -3,6 +3,7 @@ extends layout
 block css 
   link(rel='stylesheet', href='/stylesheets/champion_select.css')
   link(rel='stylesheet', href='/stylesheets/cost.css')
+  link(rel='stylesheet', href='/stylesheets/champion_detail.css')
 
 block script 
   script(src="/javascripts/champ_sort.js") 
@@ -23,46 +24,45 @@ block content
               span(class=("cost-"+champion.cost)) $#{champion.cost}
               img(src=(champion.portraitURL), alt=champion.name) 
               p1= champion.name 
+              div(data-id=champion.id, data-trait=champion.trait, data-name=champion.name, data-cost=champion.cost)
+              
 
 
     .champ_detail 
-      if(champion)
-        .champ_banner 
-          .banner_background(style=("background-image: url('"+champion.bannerURL+"')"), class=("cost-"+champion.cost))
-            .banner_detail
-              p #{champion.name} 
-            .banner_traits
-              .banner_trait 
-                span Trait:
-                each trait in traits
+      block interface
+        if(champion)
+          .champ_banner 
+            .banner_background(style=("background-image: url('"+champion.bannerURL+"')"), class=("cost-"+champion.cost))
+              .banner_detail
+                p #{champion.name} 
+              .banner_traits
+                .banner_trait 
+                  span Trait:
+                  each trait in traits
+                    a(href=trait.url, class="trait")
+                      img(src= trait.svgURL)
+                      p= trait.name
+          .champ_ability
+            p champion ability not implemented 
+            p cant find permade data
+            p rito api sucks
+          .champ_trait_relation 
+            if(traits)
+              .header 
+                span trait:
+              each trait in traits 
+                .content
                   a(href=trait.url, class="trait")
                     img(src= trait.svgURL)
                     p= trait.name
-        .champ_ability
-          p champion ability not implemented 
-          p cant find permade data
-          p rito api sucks
-        .champ_trait_relation 
-          if(traits)
-            .header 
-              span trait:
-            each trait in traits 
-              .content
-                .name
-                  span #{trait.name}:
-                .detail 
-                  span= trait.description
-                .relation
-                  each champ in trait.champion
-                    a.block(id=champ)
+                  .detail
+                    .description 
+                      span= trait.description
+                    .relation
+                      each champ in trait.champion
+                        a.block(id=champ)
 
 
-         
-      else 
-        a none
-      if(find)
-        .cham_item  
-  
 
 
 

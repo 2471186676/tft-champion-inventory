@@ -1,0 +1,48 @@
+.champ_detail {
+	width: 70%;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+}
+.heading {
+	padding: 5px;
+	border: 1px black solid;
+	margin: 0 0 1rem 0;
+    background-color: var(--sub-background-clor);
+}
+
+.heading h {
+	font-size: larger;
+	font-weight: bolder;
+}
+
+.heading p {
+	margin: 0 3px 0 0;
+}
+
+.input {
+	padding: 5px;
+	border: 1px black solid;
+    background-color: var(--sub-background-clor);
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem
+}
+
+.input input[type=text], .input input[type=number] {
+    position: absolute;
+    left: 50%;
+}
+
+.trait{
+    margin-left: 27.5%;
+}
+
+.addTrait, .btn{
+    text-align: left;
+}
+
+

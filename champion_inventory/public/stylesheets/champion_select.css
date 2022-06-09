@@ -42,7 +42,6 @@
 	border: 1px solid black;
 	height: 100%;
 	padding: 4px;
-
 	gap: 4px;
 	row-gap: 4px;
 }
@@ -88,123 +87,7 @@
 	font-size: 50px;
 }
 
-.champ_detail {
+.champ_detail{
 	width: 70%;
-	margin: 0 0 0 5px;
 }
-
-.champ_banner {
-	width: 100%;
-	position: relative;
-}
-
-.champ_banner .banner_background {
-	position: relative;
-	background-color: #000;
-	background-position: top;
-	background-size: cover;
-	height: 130px;
-
-	color: white;
-
-	border-width: 2px;
-	border-style: solid;
-}
-
-.champ_banner .banner_detail {
-	height: inherit;
-	position: absolute;
-
-	background: rgb(0, 0, 0);
-	background: linear-gradient(
-		90deg,
-		rgba(0, 0, 0, 1) 10%,
-		rgba(255, 255, 255, 0) 50%
-	);
-
-	display: flex;
-	align-items: center;
-	padding-left: 2.5%;
-
-	font-weight: bold;
-	font-size: larger;
-}
-
-.champ_banner .banner_traits {
-	position: absolute;
-	right: 0;
-	padding: 0 1rem 0 1rem;
-	width: 7.5rem;
-	height: inherit;
-
-	background-color: #373945;
-
-	font-size: 10px;
-}
-
-.champ_banner .banner_traits .banner_trait {
-	padding: 1rem 0 0 0;
-}
-
-.champ_banner .banner_traits .trait {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	gap: 0.5rem;
-	text-decoration: none;
-	color: white;
-}
-
-.champ_banner .banner_traits .trait img {
-	width: 1rem;
-	height: 1rem;
-	filter: invert(100%);
-}
-
-.champ_ability {
-	height: 50px;
-	background-color: gainsboro;
-	border: 2px solid rgba(0, 0, 0, 0.25);
-	border-top: none;
-}
-.champ_ability p {
-	margin: 0;
-	color: rgba(128, 128, 128, 0.1);
-}
-
-.champ_trait_relation {
-	margin-top: 10px;
-	display: flex;
-	flex-direction: column;
-}
-
-.champ_trait_relation .header {
-	width: 100%;
-	background-color: gray;
-	padding: 0.5rem;
-	width: inherit;
-	border: 2px solid rgba(0, 0, 0, 0.25);
-	border-bottom: none;
-	font-size: larger;
-	font-weight: bold;
-}
-
-.champ_trait_relation .content {
-	border: 2px solid rgba(0, 0, 0, 0.25);
-	border-top: none;
-	padding: 0.5rem;
-
-	background-color: #a0a5b4;
-
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
-}
-
-.champ_trait_relation .content .name{
-	font-size: larger;
-	font-weight: bold;
-}
-
-
 

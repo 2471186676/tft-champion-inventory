@@ -1,0 +1,38 @@
+extends champion_select
+
+block css
+    link(rel='stylesheet', href='/stylesheets/champion_select.css')
+    link(rel='stylesheet', href='/stylesheets/cost.css')
+    link(rel='stylesheet', href='/stylesheets/champion_add.css')
+
+block script 
+  script(src="/javascripts/champ_sort.js") 
+  script(src="/javascripts/champion_add.js") 
+
+block interface
+    form.form(method='POST' action='')
+        .heading
+            h Add New Champion
+            p use a template by chosing a champion on the left
+        .input 
+            label Set: 
+                input.set(name="set", type="text", required=true, value="SET5", readonly=true)
+            label name: 
+                input.name(name="name",type="text",required=true)
+            label cost: 
+                input.cost(name="cost", type="number", required=true)
+            label trait: 
+            .traits
+                .trait
+                    select(name="trait")
+                        if(trait_options)
+                            each trait in trait_options 
+                                option(value=trait._id) #{trait.name} 
+                    input.remove(value="remove", type="button")
+            button.addTrait(type="button") Add Trait
+
+            button.btn(type='submit') Submit
+
+
+
+            

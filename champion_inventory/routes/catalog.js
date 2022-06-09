@@ -9,13 +9,13 @@ let trait_controller = require('../controller/traitController');
 // champion router
 
 // // GET all champion
-router.get('/page/champion', champion_controller.champion_viewer); 
-router.get('/page/champion/:id', champion_controller.champion_viewer); 
+router.get('/page/champions', champion_controller.champion_viewer); 
+router.get('/page/champions/:id', champion_controller.champion_viewer); 
 // // POST to update champion
 // router.post('/champion/:id/update', champion_controller.update_post); 
 // router.get('/champion/:id/update', champion_controller.update_get); 
 // // POST to add new champion
-router.get('/champion/add', champion_controller.add_post);
+router.get('/page/champion/add', champion_controller.add_get);
 // router.get('/champion/add', champion_controller.add_get);   
 // // POST to delete champion
 // router.post('/champion/:id/delete', champion_controller.delete_post);

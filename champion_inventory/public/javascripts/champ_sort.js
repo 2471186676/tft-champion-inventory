@@ -3,7 +3,6 @@ let sortBy = document.getElementsByClassName("sortBy")[0];
 let searchBar = document.getElementsByClassName("searchBar")[0];
 
 let byName = (array) => {
-	console.log("sorting by name");
 	let sortedElement = [];
 
 	// clean data
@@ -24,15 +23,17 @@ let byName = (array) => {
 };
 
 let byCost = (array) => {
-	console.log("sorting by cost");
 	// order entries by cost then combain into array to return
-	let sorting = { 1: [], 2: [], 3: [], 4: [], 5: [] };
+	let sorting = {};
 	let sortedElement = [];
 
 	// sort champ by cost
 	for (let i = 0; i < array.length; i++) {
 		// get cost of champion
 		let cost = array[i][1].className.split("-")[1];
+		if(sorting[cost] == undefined){
+			sorting[cost] = [];
+		}
 		sorting[cost].push(array[i]);
 	}
 
@@ -49,9 +50,7 @@ let byCost = (array) => {
 let sorting = (e) => {
 	let champions = Object.entries(getChampElems.childNodes);
 	// check for bad data
-	if (champions[0][1].id == undefined) {
-		console.log(champions.splice(0, 1));
-	}
+	if (champions[0][1].id == undefined) champions.splice(0, 1);
 	// remove add new button
 	for(let i = 0; i < champions.length; i++){
 		if(champions[i][1].id == "addNew"){
