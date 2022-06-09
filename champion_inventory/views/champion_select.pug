@@ -38,10 +38,12 @@ block content
               .banner_traits
                 .banner_trait 
                   span Trait:
-                  each trait in traits
-                    a(href=trait.url, class="trait")
-                      img(src= trait.svgURL)
-                      p= trait.name
+                  if(traits)
+                    each trait in traits
+                      a(href=trait.url, class="trait")
+                        img(src= trait.svgURL)
+                        p= trait.name
+
           .champ_ability
             p champion ability not implemented 
             p cant find permade data

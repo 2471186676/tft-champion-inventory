@@ -15,13 +15,13 @@ block interface
             h Add New Champion
             p use a template by chosing a champion on the left
         .input 
-            label Set: 
-                input.set(name="set", type="text", required=true, value="SET5", readonly=true)
-            label name: 
-                input.name(name="name",type="text",required=true)
-            label cost: 
-                input.cost(name="cost", type="number", required=true)
-            label trait: 
+            label(for="set") Set: 
+                input.set#set(name="set", type="text", required=true, value="5", readonly=true)
+            label(for="name") name: 
+                input.name#name(name="name",type="text",required=true)
+            label(for="cost") cost: 
+                input.cost#cost(name="cost", type="number", required=true)
+            label(for="trait") trait: 
             .traits
                 .trait
                     select(name="trait")

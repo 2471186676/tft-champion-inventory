@@ -8,6 +8,6 @@ exports.trait_list = function (req, res, next) {
 			return next(err);
 		}
         // fetch success, send array of object
-		res.send(listOfTrait);
+		res.render("traits")
 	});
 };

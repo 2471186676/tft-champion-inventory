@@ -10,11 +10,11 @@
     border-color: #207ac7;
     background-color: #258fed;
 }
-.cost-4{
+.cost-4, .cost-8{
     border-color: #c440da;
     background-color: #bf70cd;
 }
-.cost-5{
+.cost-5, .cost-10{
     border-color: #ffb93b;
     background-color: #f8dfb1;
 }
