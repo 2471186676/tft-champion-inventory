@@ -1,13 +1,24 @@
 var Trait = require("../models/trait");
+var Champion = require('../models/champion')
 var async = require("async");
-const { body, validationResult } = require("express-validator");
+const { body, validationResult, Result } = require("express-validator");
+const trait = require("../models/trait");
 
 exports.trait_list = function (req, res, next) {
-	Trait.find().exec(function (err, listOfTrait) {
-		if (err) {
-			return next(err);
-		}
-        // fetch success, send array of object
-		res.render("traits")
-	});
+	async.parallel({
+		origin: function(callback){
+			Trait.find({type:"origin"}).populate("champion").exec(callback)
+		},
+		class: function(callback){
+			Trait.find({type:"class"}).populate("champion").exec(callback);
+		},
+	},function(err, result){
+		if(err) return next(err);
+		res.render("traits",{
+			title:"Trait",
+			origins: result.origin,
+			classes: result.class,
+			champion: result.champion
+		})
+	})
 };

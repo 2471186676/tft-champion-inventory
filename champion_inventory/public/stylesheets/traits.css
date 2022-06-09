@@ -1,0 +1,64 @@
+.trait{
+    padding: 2.5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.class, .origin{
+    width: 100%;
+    display: grid;
+    grid-template: 1fr / 33% 33% 33%;
+    grid-auto-rows: 1fr;
+    gap:1rem;
+    font-size: smaller;
+}
+
+.detail{
+    display: flex;
+    flex-direction: column;
+}
+
+.champion{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.block {
+	position: relative;
+	font-size: 10px;
+	width: 50px;
+	height: 65px;
+	border-width: 3px;
+	border-style: solid;
+	border-radius: 2px;
+	text-decoration: none;
+
+	display: inline-block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: left;
+
+	margin: 4px;
+}
+
+.block span {
+	font-size: 0.5rem;
+	position: absolute;
+	right: 0;
+	color: white;
+	text-shadow: -1px 0 2px #000, 0 1px 2px #000, 1px 0 2px #000,
+		0 -1px 2px #000;
+}
+
+.block img {
+	height: 50px;
+}
+
+.block p1 {
+	font-weight: bold;
+	color: black;
+}

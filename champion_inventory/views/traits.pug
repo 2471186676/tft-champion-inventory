@@ -1,0 +1,31 @@
+extends layout
+
+block css 
+  link(rel='stylesheet', href='/stylesheets/traits.css')
+  link(rel='stylesheet', href='/stylesheets/cost.css')
+
+block content 
+    .trait 
+        h1 Class:
+        .class 
+            if(origins)
+                each ori in origins
+                    .trait_block 
+                        .title 
+                            p=ori.name
+                        .detail 
+                            .champion 
+                                each champ in ori.champion
+                                    a.block(href=champ.url, class= ("cost-"+champ.cost), id=champ._id)
+                                        span(class=("cost-"+champ.cost)) $#{champ.cost}
+                                        img(src=(champ.portraitURL), alt=champ.name) 
+                                        p1= champ.name 
+                                        div(data-id=champ.id, data-trait=champ.trait, data-name=champ.name, data-cost=champ.cost)
+                            .description 
+                                p=ori.description   
+        h1 Origin:
+        .origin
+            if(classes)
+                    each cla in classes
+                        .trait_block 
+                            p= cla._id
