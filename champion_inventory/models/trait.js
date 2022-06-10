@@ -22,7 +22,7 @@ TraitSchema.virtual("url").get(function () {
 	return "/catalog/trait/" + this._id;
 });
 
-TraitSchema.virtual("type_options").get(function () {
+TraitSchema.virtual("type_option").get(function () {
 	return ["class", "origin"];
 });
 

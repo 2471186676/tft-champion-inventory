@@ -1,0 +1,41 @@
+extends champion_select 
+
+block css 
+    link(rel='stylesheet', href='/stylesheets/champion_select.css')
+    link(rel='stylesheet', href='/stylesheets/cost.css')
+    link(rel='stylesheet', href='/stylesheets/traits_add.css')
+
+block script 
+    script(src="/javascripts/champ_sort.js")
+    script(src="/javascripts/trait_add.js")
+
+
+block interface     
+    form.form(method='POST' action='')
+        .heading
+            h Add New Trait
+            p Add a chmpion to this trait by using the selector on the left
+        .input 
+            label(for="set") Set: 
+                input.set#set(name="set", type="text", required=true, value="5", readonly=true)
+            label(for="name") name: 
+                input.name#name(name="name",type="text",required=true)
+            label(for="type") type: 
+                select(name="type")
+                    option(value="class") Class 
+                    option(value="origin") Origin
+            label.textarea(for="description") Description: 
+                textarea.cost#cost(name="cost", type="number", required=true)
+            label(for="champion") Champion: 
+            .traits
+                .trait
+                    select.select(name="champion")
+                        option(value="") none
+                        if(data)
+                            each champion in data 
+                                option(value=champion._id) #{champion.name} 
+                    input.remove(value="remove", type="button")
+
+            button.addChampion(type="button") Add Champion
+
+            button.btn(type='submit') Submit

@@ -1,17 +1,19 @@
 extends layout
 
 block css 
-  link(rel='stylesheet', href='/stylesheets/traits.css')
-  link(rel='stylesheet', href='/stylesheets/cost.css')
+    link(rel='stylesheet', href='/stylesheets/traits.css')
+    link(rel='stylesheet', href='/stylesheets/cost.css')
+    
 
 block content 
     .trait 
-        h1 Class:
-        .class 
+        h1 Origin:
+        .origin 
             if(origins)
                 each ori in origins
                     .trait_block 
                         .title 
+                            img(src=ori.svgURL, alt=ori.name)
                             p=ori.name
                         .detail 
                             .champion 
@@ -23,9 +25,25 @@ block content
                                         div(data-id=champ.id, data-trait=champ.trait, data-name=champ.name, data-cost=champ.cost)
                             .description 
                                 p=ori.description   
-        h1 Origin:
-        .origin
+        h1 Class:
+        .class
             if(classes)
-                    each cla in classes
-                        .trait_block 
-                            p= cla._id
+                each cla in classes
+                    .trait_block 
+                        .title 
+                            img(src=cla.svgURL, alt=cla.name)
+                            p=cla.name
+                        .detail 
+                            .champion 
+                                each champ in cla.champion
+                                    a.block(href=champ.url, class= ("cost-"+champ.cost), id=champ._id)
+                                        span(class=("cost-"+champ.cost)) $#{champ.cost}
+                                        img(src=(champ.portraitURL), alt=champ.name) 
+                                        p1= champ.name 
+                                        div(data-id=champ.id, data-trait=champ.trait, data-name=champ.name, data-cost=champ.cost)
+                            .description 
+                                p=cla.description   
+            
+        
+        a.addTrait(href="/page/trait/add")
+            button +

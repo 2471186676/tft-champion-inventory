@@ -26,13 +26,11 @@ router.post('/page/champion/add', champion_controller.add_post);
 
 // // GET all trait detail
 router.get('/page/trait', trait_controller.trait_list);
-// // GET a trait detail
-// router.get('/trait/:id', trait_controller.get_one);
 // //  update a trait
 // router.post('/trait/:id/update', trait_controller.update_post);
 // router.get('/trait/:id/update', trait_controller.update_get);
 // //  add a new trait
-// router.post('/trait/:id/add', trait_controller.add_post);
+router.get('/page/trait/add', trait_controller.add_trait);
 // router.get('/trait/:id/add', trait_controller.add_get);
 // //  delete a trait
 // router.post('/trait/:id/delete', trait_controller.delete_post);

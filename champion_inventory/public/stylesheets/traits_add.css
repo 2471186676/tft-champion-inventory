@@ -1,0 +1,71 @@
+.champ_detail {
+	width: 70%;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+}
+.heading {
+	padding: 5px;
+	border: 1px black solid;
+	margin: 0 0 1rem 0;
+    background-color: var(--sub-background-clor);
+}
+
+.heading h {
+	font-size: larger;
+	font-weight: bolder;
+}
+
+.heading p {
+	margin: 0 3px 0 0;
+}
+
+.input {
+	padding: 5px;
+	border: 1px black solid;
+    background-color: var(--sub-background-clor);
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+	font-weight: bold;
+}
+
+.input input[type=text], .input input[type=number], .input textarea, .input select {
+    position: absolute;
+    left: 50%;
+}
+
+.input .textarea{
+    height: 3rem;
+}
+
+.input textarea{
+    height: 3rem;
+    width: 35vw;
+    max-height: 3rem;
+    max-width: 35vw;
+}
+.traits{
+    margin-left: 50%;
+}
+
+.addChampion, .btn{
+	border:1px solid #8f8f9d;
+	width: 80px;
+	height: fit-content;
+	padding: 0.25rem;
+	border-radius: 5px;
+
+	font-weight: normal;
+	background-color: #e9e9ed;
+}
+
+.addChampion:hover, .btn:hover{
+	background-color: #c3c3c7;
+}
+
+
