@@ -19,7 +19,7 @@ var TraitSchema = new Schema({
 
 // Virtual for traits's URL
 TraitSchema.virtual("url").get(function () {
-	return "/catalog/trait/" + this._id;
+	return "/images/SET7/trait/" + this._id;
 });
 
 TraitSchema.virtual("type_option").get(function () {
@@ -27,7 +27,7 @@ TraitSchema.virtual("type_option").get(function () {
 });
 
 TraitSchema.virtual("svgURL").get(function () {
-	return "/images/traits/"+this.name.toLowerCase()+".svg"
+	return "/images/SET7/traits/"+this.name.toLowerCase()+".svg"
 });
 
 TraitSchema.virtual("champFormat").get(function () {

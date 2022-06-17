@@ -12,11 +12,11 @@ var ChampionSchema = new Schema({
 
 // Virtual for champion's URL
 ChampionSchema.virtual("portraitURL").get(function () {
-	return "/images/champions/" + this._id + ".png";
+	return "/images/SET7/champions/" + this._id + ".png";
 });
 
 ChampionSchema.virtual("bannerURL").get(function() {
-	return "/images/banner/" + this._id + ".jpg";
+	return "/images/SET7/splash/" + this._id + ".png";
 })
 
 ChampionSchema.virtual("url").get(function () {

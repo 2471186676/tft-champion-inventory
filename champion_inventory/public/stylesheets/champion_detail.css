@@ -11,8 +11,9 @@
 .champ_banner .banner_background {
 	position: relative;
 	background-color: #000;
-	background-position: top;
-	background-size: cover;
+	background-position: 30% 20%;
+	background-size:cover;
+	background-repeat: no-repeat;
 	height: 130px;
 
 	color: white;
