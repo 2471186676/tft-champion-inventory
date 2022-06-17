@@ -7,9 +7,9 @@ var ItemSchema = new Schema({
 	name: { type: String, required: true },
 	description: { type: String, required: true },
 	type: {
-		isUnique: { type: Boolean, required: true},
-		isElusive: { type: Boolean, required: true },
-		isRadiant: { type: Boolean, required: true },
+		isUnique: { type: Boolean, required: false},
+		isElusive: { type: Boolean, required: false },
+		isArtifact: { type: Boolean, required: false },
 	},
 });
 

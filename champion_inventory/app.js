@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // connect to database
 var dev_db_url =
-	"mongodb+srv://user1:escha@data.rq1nt.mongodb.net/?retryWrites=true&w=majority";
+	"mongodb+srv://user1:escha@data.rq1nt.mongodb.net/SET7?retryWrites=true&w=majority";
 var mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 // error handle for database connection
@@ -53,3 +53,4 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
+module.exports = db;

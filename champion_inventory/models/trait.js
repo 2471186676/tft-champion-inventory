@@ -14,7 +14,7 @@ var TraitSchema = new Schema({
 			max: { type: Number },
 		},
 	],
-	champion: [{ type: String, ref: "Champion", unique:true }],
+	champion: [{ type: String, ref: "Champion", unique:false }],
 });
 
 // Virtual for traits's URL
