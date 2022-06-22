@@ -3,8 +3,8 @@ var router = express.Router();
 
 // require controller
 let champion_controller = require('../controller/championController');
-let ability_controller = require('../controller/abilityController');
 let trait_controller = require('../controller/traitController');
+let item_controller = require('../controller/itemController')
 
 // champion router
 
@@ -37,6 +37,7 @@ router.post('/page/trait/add', trait_controller.add_post);
 // router.get('/trait/:id/delete', trait_controller.delete_get);
 
 // item router
+router.get('/page/item', item_controller.item_viewer);
 
 
 

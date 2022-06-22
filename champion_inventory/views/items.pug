@@ -1,0 +1,22 @@
+extends layout
+
+block script 
+    script(src="/javascripts/createItemTable.js", item = item) 
+
+block css 
+    link(rel="stylesheet", href="/stylesheets/item_viewer.css")
+
+block content 
+    .item-wrapper 
+        .item
+            //- .item_row
+                //- .item_block
+                    //- each i in item 
+                    //-     if(i._id == 1)
+                    //-         img(src=i.url, alt=i.name)
+                    //-         .info 
+                    //-             p=i.name 
+                    //-             p=i.description
+
+
+        

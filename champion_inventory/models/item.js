@@ -15,7 +15,7 @@ var ItemSchema = new Schema({
 
 // Virtual for traits's URL
 ItemSchema.virtual("url").get(function () {
-	return "/catalog/trait/" + this._id;
+	return "/images/SET7/items/" + this._id +".png";
 });
 
 //Export model
