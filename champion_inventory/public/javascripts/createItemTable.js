@@ -1,11 +1,14 @@
 let item = document.currentScript.getAttribute('item'); 
 item = JSON.parse(item);
-let table = document.getElementsByClassName("item")[0];
+let normalTable = document.getElementsByClassName("normalItem")[0];
+let armoryTable = document.getElementsByClassName("armoryItem")[0];
+let timeout = null;
 // console.log(item);
 
 let row_id = [null, 1, 2, 3, 4, 5, 6, 7, 9, 8];
 let column_id = [null, 1, 2, 3, 4, 5, 6, 7, 9, 8];
 
+// create craftable item table
 for(let row = 0; row < row_id.length; row++){
     let rowElem = createRow();
     for(let column = 0; column < column_id.length; column++){
@@ -26,77 +29,61 @@ for(let row = 0; row < row_id.length; row++){
             elem = createBlock(getItem(id), row, column);
         }
 
+        elem.addEventListener('mouseenter', (e) => blockEnter(e, normalTable.childNodes, [row, column]));
+        elem.addEventListener('mouseleave', (e) => blockLeave(e));
         rowElem.appendChild(elem);
     }
-    table.appendChild(rowElem);
+    normalTable.appendChild(rowElem);
 }
 
-function createBlock (item, x, y){
-    let block = document.createElement("div");
-    block.className = "item_block " + x + "-" + y;
-
-    let info = document.createElement("div");
-    info.className = "info";
-
-    let itemName = document.createElement("h");
-    itemName.className = "name";
-    itemName.innerText = item.name;
-    info.appendChild(itemName);
-
-    let itemDesc = document.createElement("p");
-    itemDesc.className = "description";
-    itemDesc.innerText = item.description;
-    info.appendChild(itemDesc);
-    
-    let image = document.createElement("img");
-    image.src = "/images/SET7/items/" + item._id +".png";
-    image.alt = item.name;
-    
-    block.appendChild(image);
-    block.appendChild(info);
-
-    block.addEventListener('mouseenter', blockEnter);
-    block.addEventListener('mouseleave', blockLeave);
-
-    return block
-}
-
-function createEmptyBlock(){
-    let block = document.createElement("div");
-    block.className = "item_block";
-    return block;
-}
-
-function createRow(){
-    let row = document.createElement("div");
-    row.className = "item_row";
-
-    return row;
-}
-
-function getItem(id){
-    let obj = null;
-    // check id but in reverse
-    let idString = id.toString();
-    reverse = idString.charAt(1) + idString.charAt(0)
-
+// create special item table
+// ornn armory
+function getArmoryItem(){
+    // _id start with 3, length of 3
+    let armory = []
     for(let i = 0; i < item.length; i++){
-        if(item[i]._id == id || item[i]._id == reverse){
-            // console.log(id, item[i]);
-            obj = item[i];
-            i = item.length + 2;
-        }
+        let id = item[i]._id.toString();
+        let length = id.length,
+            start = id.charAt(0);
+
+        if(start == 3 && length == 3){ armory.push(item[i]) }
     }
-    
-    return obj;
+    return armory;
+}
+let armoryItem = getArmoryItem();
+for(let i = 0; i < armoryItem.length; i++){
+    let block = createBlock(armoryItem[i], 0, i);
+
+    block.addEventListener('mouseenter', (e) =>{
+        // changeBrightness(armoryTable.childNodes, 20);
+        // e.target.style.filter = "brightness(100%)";
+        blockEnter(e, armoryTable.childNodes, [])
+    });
+    block.addEventListener('mouseleave', (e) =>{
+        e.target.childNodes[1].style.display = "none";
+        clearTimeout(timeout);
+    });
+    armoryTable.appendChild(block);
 }
 
-let timeout = null
-function blockEnter(e){
-    changeBrightness(20);
+// radiant relic
+
+
+// add eventlistener wrapper
+normalTable.addEventListener("mouseleave", (e) =>{
+    changeBrightness(normalTable.childNodes, 100);
+})
+
+
+armoryTable.addEventListener("mouseleave", (e) =>{
+    changeBrightness(armoryTable.childNodes, 100);
+})
+
+// add eventlistener function
+function blockEnter(e, node, cord){
+    changeBrightness(node, 20);
     
-    let cord = e.target.className.split(" ")[1].split("-");
-    relatedBrightness(cord[0], cord[1]);
+    cord.length == 2 ? relatedBrightness(cord[0], cord[1]):{}
     e.target.childNodes[0].style.filter = "brightness(100%)";
 
     timeout = setTimeout(() => {
@@ -110,18 +97,24 @@ function blockLeave(e){
 }
 
 
-function changeBrightness(p) {
-    let row = table.childNodes;
-    
-    for(let x = 0; x < row.length; x++){
-        let child = row[x].childNodes;
+// change css
+function changeBrightness(nodes, p) {
 
-        for(let y = 0; y < child.length; y++){
-            if(child[y].childNodes.length != 0){
-                child[y].childNodes[0].style.filter = "brightness("+ p +"%)";
+    if(nodes[0].className.includes("item_row")){
+        for(let x = 0; x < nodes.length; x++){
+            let child = nodes[x].childNodes;
+            
+            for(let y = 0; y < child.length; y++){
+                if(child[y].childNodes.length != 0){
+                    child[y].childNodes[0].style.filter = "brightness("+ p +"%)";
+                }
             }
+            
         }
-        
+    } else {    
+        for(let i = 0; i < nodes.length; i++){
+            nodes[i].childNodes[0].style.filter = "brightness("+ p +"%)"
+        }
     }
 }
 
@@ -147,13 +140,61 @@ function relatedBrightness(x,y){
    })
 }
 
-table.addEventListener("mouseenter", (e) =>{
-    console.log("enter")
-    changeBrightness(20);
-})
+// create element
+function createBlock (item, x, y){
+    let block = document.createElement("div");
+    block.className = "item_block " + x + "-" + y;
 
-table.addEventListener("mouseleave", (e) =>{
-    console.log("leave")
-    changeBrightness(100);
-})
+    let info = document.createElement("div");
+    info.className = "info";
 
+    let itemName = document.createElement("h");
+    itemName.className = "name";
+    itemName.innerText = item.name;
+    info.appendChild(itemName);
+
+    let itemDesc = document.createElement("p");
+    itemDesc.className = "description";
+    itemDesc.innerText = item.description;
+    info.appendChild(itemDesc);
+    
+    let image = document.createElement("img");
+    image.src = "/images/SET7/items/" + item._id +".png";
+    image.alt = item.name;
+    
+    block.appendChild(image);
+    block.appendChild(info);
+
+    return block
+}
+
+function createEmptyBlock(){
+    let block = document.createElement("div");
+    block.className = "item_block";
+    return block;
+}
+
+function createRow(){
+    let row = document.createElement("div");
+    row.className = "item_row";
+
+    return row;
+}
+
+
+function getItem(id){
+    let obj = null;
+    // check id but in reverse
+    let idString = id.toString();
+    reverse = idString.charAt(1) + idString.charAt(0)
+
+    for(let i = 0; i < item.length; i++){
+        if(item[i]._id == id || item[i]._id == reverse){
+            // console.log(id, item[i]);
+            obj = item[i];
+            i = item.length + 2;
+        }
+    }
+    
+    return obj;
+}

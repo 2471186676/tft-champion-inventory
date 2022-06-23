@@ -8,15 +8,21 @@ block css
 
 block content 
     .item-wrapper 
-        .item
-            //- .item_row
-                //- .item_block
-                    //- each i in item 
-                    //-     if(i._id == 1)
-                    //-         img(src=i.url, alt=i.name)
-                    //-         .info 
-                    //-             p=i.name 
-                    //-             p=i.description
+        .normal
+            p1 Craftable item table:
+            div(class="item normalItem")
+                //- .item_row
+                    //- .item_block
+                        //- each i in item 
+                        //-     if(i._id == 1)
+                        //-         img(src=i.url, alt=i.name)
+                        //-         .info 
+                        //-             p=i.name 
+                        //-             p=i.description
+        
+        .armory 
+            p1 Ornn Armory: 
+            div(class="item armoryItem")
 
 
         
