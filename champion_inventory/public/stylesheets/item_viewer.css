@@ -28,6 +28,7 @@ p1{
     margin-bottom: 1rem;
 }
 
+
 .item_row{
     width: 100%;
     display: flex;
@@ -38,12 +39,19 @@ p1{
 .item_block{
     width: 10%;
     position: relative;
+    flex: 1 0 5%;
 }
+
+.radiantItem .item_block{
+    flex: 1 0 8%;
+    max-width: 8.5%;
+}
+
+
 
 .item_block img{
     width: 100%;
     border-radius: 5px;
-
     z-index: 1;
     position:relative;
 }
@@ -69,8 +77,12 @@ p1{
     font-weight: bolder;
 }
 
-.armoryItem{
+.armoryItem, .radiantItem{
     flex-direction: row !important;
+}
+
+.radiantItem{
+    flex-wrap:wrap;
 }
 
 

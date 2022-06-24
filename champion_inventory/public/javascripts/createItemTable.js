@@ -2,6 +2,7 @@ let item = document.currentScript.getAttribute('item');
 item = JSON.parse(item);
 let normalTable = document.getElementsByClassName("normalItem")[0];
 let armoryTable = document.getElementsByClassName("armoryItem")[0];
+let radiantTable = document.getElementsByClassName("radiantItem")[0];
 let timeout = null;
 // console.log(item);
 
@@ -67,6 +68,33 @@ for(let i = 0; i < armoryItem.length; i++){
 }
 
 // radiant relic
+function getRadiantItem(){
+    // start with 20, length of 4
+    let radiant = []
+    for(let i = 0; i < item.length; i++){
+        let id = item[i]._id.toString();
+        let length = id.length,
+            start = id.charAt(0) + id.charAt(1);
+
+        if(start == "20" && length == 4){ radiant.push(item[i]) }
+    }
+    return radiant;
+}
+
+let radiantItem = getRadiantItem();
+for(let i = 0; i < radiantItem.length; i++){
+    let block = createBlock(radiantItem[i], 0, i);
+
+    block.addEventListener('mouseenter', (e) =>{
+        blockEnter(e, radiantTable.childNodes, [])
+    });
+    block.addEventListener('mouseleave', (e) =>{
+        e.target.childNodes[1].style.display = "none";
+        clearTimeout(timeout);
+    });
+    radiantTable.appendChild(block);
+}
+
 
 
 // add eventlistener wrapper
@@ -77,6 +105,10 @@ normalTable.addEventListener("mouseleave", (e) =>{
 
 armoryTable.addEventListener("mouseleave", (e) =>{
     changeBrightness(armoryTable.childNodes, 100);
+})
+
+radiantTable.addEventListener("mouseleave", (e) =>{
+    changeBrightness(radiantTable.childNodes, 100);
 })
 
 // add eventlistener function
