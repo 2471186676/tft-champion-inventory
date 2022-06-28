@@ -179,3 +179,30 @@ exports.add_post = [
 // 		set: req.body.set
 // 	})
 // }
+
+exports.rerollSim = function (req, res, next) {
+	async.series(
+		{
+			champion: function (callback) {
+				Champion.find()
+					.sort([["cost", "ascending"]])
+					.exec(callback);
+			},
+			trait: function (callback) {
+				Trait.find().exec(callback);
+			},
+		},
+		function (err, result) {
+			if (err) {
+				return next(err);
+			} else {
+				// Successful, so render
+				res.render("rerollSim", {
+					title: "LoLChess",
+					champion: result.champion,
+					traits: result.trait,
+				});
+			}
+		}
+	);
+};

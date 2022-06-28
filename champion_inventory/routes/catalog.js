@@ -30,14 +30,18 @@ router.get('/page/trait', trait_controller.trait_list);
 // router.post('/trait/:id/update', trait_controller.update_post);
 // router.get('/trait/:id/update', trait_controller.update_get);
 // //  add a new trait
-router.get('/page/trait/add', trait_controller.add_get);
-router.post('/page/trait/add', trait_controller.add_post);
+// router.get('/page/trait/add', trait_controller.add_get);
+// router.post('/page/trait/add', trait_controller.add_post);
 // //  delete a trait
 // router.post('/trait/:id/delete', trait_controller.delete_post);
 // router.get('/trait/:id/delete', trait_controller.delete_get);
 
 // item router
 router.get('/page/item', item_controller.item_viewer);
+
+// reroll sim
+router.get('/page/reroll', champion_controller.rerollSim);
+
 
 
 

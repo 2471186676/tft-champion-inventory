@@ -42,8 +42,8 @@ p1{
     flex: 1 0 5%;
 }
 
-.radiantItem .item_block{
-    flex: 1 0 8%;
+.radiantItem .item_block, .shimmerscaleItem .item_block{
+    flex: 1 0 8.5%;
     max-width: 8.5%;
 }
 
@@ -65,7 +65,7 @@ p1{
 
     padding: 0.5rem;
     border-radius: 5px;
-    width: 20rem;
+    width: 17rem;
 
     left:110%;
     top: 109%;
@@ -77,7 +77,7 @@ p1{
     font-weight: bolder;
 }
 
-.armoryItem, .radiantItem{
+.armoryItem, .radiantItem, .shimmerscaleItem{
     flex-direction: row !important;
 }
 

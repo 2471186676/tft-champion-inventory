@@ -1,0 +1,116 @@
+.upper{
+    height: 55px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    background-color: #5a5d64;
+}
+
+.level{
+    width: 234px;
+    height: 54px;
+    background-image: url("../images/UI_asset/levelBG.png");
+    background-repeat: no-repeat;
+
+    /* border-bottom: 1px solid rgb(198, 174, 76); */
+    /* box-sizing: border-box; */
+    position: relative;
+    z-index: 2;
+}
+
+.level:after{
+    content: '';
+    width: 228px;
+    height: 2px;
+    background-color: rgb(38, 35, 24);
+    /* background-color: aliceblue; */
+    position: absolute;
+    bottom: 0px;
+    left: 4px;
+}
+
+.rollChance{
+     position: relative;
+     width: 390px;
+     right: 150px;
+     border-bottom: 33px solid rgb(0, 0, 0);
+     border-right: 25px solid transparent;
+    
+    z-index: 1;
+}
+
+.gold{
+    position: relative;
+    align-self: center;
+    background: url("../images/UI_asset/goldBG.png") right no-repeat;
+    height: 100%;
+    width: 200px;
+    right: 65px;
+}
+
+.lock{
+    background: url("../images/UI_asset/lockOff.png") right no-repeat;
+    width: 90px;
+    height: 43px;
+    margin-left: auto;
+}
+
+
+/*
+{
+
+        LOWER
+
+}
+*/
+
+.lower{
+    position: relative;
+    height: 145px;
+    box-sizing: border-box;
+    border-left: 4px solid #6e5831;
+    border-bottom: 4px solid #6e5831;
+    border-right: 4px solid #6e5831;
+
+
+    
+    display: flex;
+    flex-direction: row;
+}
+
+.lower:after{
+    content: '';
+    width: 83.1%;
+    height: 5px;
+    background-color: #826a39;
+    position: absolute;
+    top: -5px;
+    left: 229px;
+
+    z-index: 11;
+}
+
+.border{
+    box-sizing: border-box;
+    border: 2px solid rgb(15, 15, 16);
+    position:absolute;
+    height: 141px;
+    width: 1357px;
+}
+
+.action{
+    width: 234px;
+    height: 100%;
+    border: 4px solid rgb(21, 37, 40);
+    box-sizing: border-box;
+    background-color: rgb(14, 20, 22);
+}
+
+.buyChampion{
+    height: 100%;
+    flex-grow: 1;
+    border: 4px solid rgb(21, 37, 40);
+    box-sizing: border-box;
+    background-color: rgb(14, 20, 22);
+    border-left: none;
+}

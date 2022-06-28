@@ -3,6 +3,7 @@ item = JSON.parse(item);
 let normalTable = document.getElementsByClassName("normalItem")[0];
 let armoryTable = document.getElementsByClassName("armoryItem")[0];
 let radiantTable = document.getElementsByClassName("radiantItem")[0];
+let shimmerscaleTable = document.getElementsByClassName("shimmerscaleItem")[0];
 let timeout = null;
 // console.log(item);
 
@@ -56,8 +57,6 @@ for(let i = 0; i < armoryItem.length; i++){
     let block = createBlock(armoryItem[i], 0, i);
 
     block.addEventListener('mouseenter', (e) =>{
-        // changeBrightness(armoryTable.childNodes, 20);
-        // e.target.style.filter = "brightness(100%)";
         blockEnter(e, armoryTable.childNodes, [])
     });
     block.addEventListener('mouseleave', (e) =>{
@@ -95,13 +94,38 @@ for(let i = 0; i < radiantItem.length; i++){
     radiantTable.appendChild(block);
 }
 
+// shimmerscale
+function getShimmerscale(){
+    // id start from 3002 to 3009, 3001 is dragon blessing
+    let length,
+        shimmerscale = [],
+        id;
+    for(let i = 0; i < item.length; i++){
+        id = item[i]._id.toString();
+        length = id.length;
+        if(length == 4 && id.startsWith("300") && id.endsWith("1") == false){shimmerscale.push(item[i])}
+    }
+    return shimmerscale;
+}
 
+let shimmerscale = getShimmerscale();
+for(let i = 0; i < shimmerscale.length; i++){
+    let block = createBlock(shimmerscale[i], 0, i);
+
+    block.addEventListener('mouseenter', (e) =>{
+        blockEnter(e, shimmerscaleTable.childNodes, [])
+    });
+    block.addEventListener('mouseleave', (e) =>{
+        e.target.childNodes[1].style.display = "none";
+        clearTimeout(timeout);
+    });
+    shimmerscaleTable.appendChild(block);
+}
 
 // add eventlistener wrapper
 normalTable.addEventListener("mouseleave", (e) =>{
     changeBrightness(normalTable.childNodes, 100);
 })
-
 
 armoryTable.addEventListener("mouseleave", (e) =>{
     changeBrightness(armoryTable.childNodes, 100);
@@ -111,16 +135,20 @@ radiantTable.addEventListener("mouseleave", (e) =>{
     changeBrightness(radiantTable.childNodes, 100);
 })
 
+shimmerscaleTable.addEventListener("mouseleave", (e) =>{
+    changeBrightness(shimmerscaleTable.childNodes, 100);
+})
+
 // add eventlistener function
 function blockEnter(e, node, cord){
     changeBrightness(node, 20);
     
     cord.length == 2 ? relatedBrightness(cord[0], cord[1]):{}
-    e.target.childNodes[0].style.filter = "brightness(100%)";
+    e.target.childNodes[0].style.filter = "brightness(140%)";
 
     timeout = setTimeout(() => {
         e.target.childNodes[1].style.display = "block"
-    }, 500);
+    }, 300);
 }
 
 function blockLeave(e){
