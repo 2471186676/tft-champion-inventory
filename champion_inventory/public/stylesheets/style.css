@@ -21,6 +21,7 @@ body {
   flex-direction: column;
   padding: 0;
   margin: 0;
+  overflow-x: hidden;
 }
 
 .site_header{
@@ -63,4 +64,5 @@ body {
 .footer{
   height: 100px;
   background-color: var(--sub-color);
+  width: 99vw;
 }

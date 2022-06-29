@@ -12,19 +12,21 @@
     height: 90vh;
     width: 1365px;
     min-width: 1365px;
-    /* margin: 0 2vw 5rem 2vw; */
+    background-color: #5a5d64;
 }
 
 .board{
     border: 1px solid black;
     height: 75%;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .shop{
     border: 1px solid black;
-    height: 200px;
-    width: 100%;
+    height: 226px;
+    width: 93%;
     display: flex;
     flex-direction: column;
+    margin-left: 3%;
 }
