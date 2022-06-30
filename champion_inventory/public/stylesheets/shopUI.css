@@ -36,10 +36,24 @@
     left: 15px;
 }
 
-.level .slider{
+.level .level_select{
     position: absolute;
-    bottom: 1px;
-    left: 5px;
+    bottom: 6px;
+    left: 12px;
+    width: 100%;
+}
+
+.level_select .slider{
+    height: 7px;
+    background-color: #5a5d64;
+    width: 170px;
+}
+
+.level_select .slider::-moz-range-thumb, .level_select .slider::-webkit-slider-thumb{
+    width: 5px; 
+    height: 5px;  
+    background: grey;
+    cursor: pointer; 
 }
 
 .rollChance{

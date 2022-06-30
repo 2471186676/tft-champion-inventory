@@ -21,6 +21,7 @@
 }
 .gem img{
     user-select: none;
+    pointer-events: none;
 }
 
 .outline{
@@ -41,7 +42,6 @@
     box-sizing: border-box;
     border: 2px solid darkgray;
 
-    background-image: url("../images/SET7/protrait/TFT7_Bard.png");
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -100,18 +100,16 @@
     align-items: center;
 
     padding-left: 5px;
+    padding-right: 4px;
     font-weight: bolder;
 }
 
 .description .cost{
     display: flex;
     flex-direction: row;
-    align-self: flex-start;
-
-    margin-left: 66%;
-
     align-items: center;
     justify-content: center;
+    margin-left: auto;
 
     height: 100%;
 }

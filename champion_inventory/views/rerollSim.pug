@@ -1,15 +1,18 @@
 extends layout
 
 block script 
-    script(src="/javascripts/rerollSim.js", champions = champion) 
+    script(src="/javascripts/createSlot.js", type="module") 
+    script(src="/javascripts/slotManager.js", champions = champion) 
 
 block css 
-    link(rel="stylesheet", href="/stylesheets/shopUI.css")
+
     link(rel="stylesheet", href="/stylesheets/rerollSim.css")
+    link(rel="stylesheet", href="/stylesheets/shopUI.css")
     link(rel="stylesheet", href="/stylesheets/championBlock.css")
     
 
 block content 
+    //- span(class="champions", style="display:none") #{champion}
     .body
         .wrapper 
             .board 
@@ -18,9 +21,10 @@ block content
                 .upper 
                     .level 
                         .level_num 
-                            p1 Lvl. 1 
-                        .slider 
-                            input(type="range", min="1", max="11", class="slider")
+                            //- p1 Lvl. 1 
+                            p1 Your mum here
+                        .level_select
+                            input(type="range", min="1", max="11", class="slider", value="1")
                         
                     .rollChance 
                         .rollChanceWrapper
@@ -62,37 +66,24 @@ block content
                                 p1 2
 
                     .buyChampion
-                        each _ in Array(5)
-                            .block_champion
-                                .border
-                                .gem
-                                    img(src="../images/cost gem/5cost.png")
 
-                                .outline
-                                    .portrait
-                                        .trait 
-                                            .traitIMG
-                                                img(src="../images/UI_asset/traitBG.png", class="bg")
-                                                img(src="../images/SET7/traits/Bard.svg", class="icon")
-                                            p Bard 
-                                        .trait 
-                                            .traitIMG
-                                                img(src="../images/UI_asset/traitBG.png", class="bg")
-                                                img(src="../images/SET7/traits/Bard.svg", class="icon")
-                                            p Bard 
-                                        .trait 
-                                            .traitIMG
-                                                img(src="../images/UI_asset/traitBG.png", class="bg")
-                                                img(src="../images/SET7/traits/Bard.svg", class="icon")
-                                            p Bard 
-                                        .trait 
-                                            .traitIMG
-                                                img(src="../images/UI_asset/traitBG.png", class="bg")
-                                                img(src="../images/SET7/traits/Bard.svg", class="icon")
-                                            p Bard 
-                                    .description 
-                                        .name 
-                                            p Bard 
-                                        .cost 
-                                            img(src="../images/UI_asset/goldIcon.png")
-                                            p 5
+                        //- .block_champion
+                        //-     .border
+                        //-     .gem
+                        //-         img(src="../images/cost gem/5cost.png")
+
+                        //-     .outline
+                        //-         .portrait
+
+                        //-             .trait 
+                        //-                 .traitIMG
+                        //-                     img(src="../images/UI_asset/traitBG.png", class="bg")
+                        //-                     img(src="../images/SET7/traits/Bard.svg", class="icon")
+                        //-                 p Bard 
+                                    
+                        //-         .description 
+                        //-             .name 
+                        //-                 p Bard 
+                        //-             .cost 
+                        //-                 img(src="../images/UI_asset/goldIcon.png")
+                        //-                 p 5
