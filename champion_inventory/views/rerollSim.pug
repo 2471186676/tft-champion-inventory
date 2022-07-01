@@ -5,15 +5,18 @@ block script
     script(src="/javascripts/slotManager.js", champions = champion) 
 
 block css 
-
     link(rel="stylesheet", href="/stylesheets/rerollSim.css")
     link(rel="stylesheet", href="/stylesheets/shopUI.css")
     link(rel="stylesheet", href="/stylesheets/championBlock.css")
+    link(rel="stylesheet", href="/stylesheets/blockColor.css")
+
+block link
+    for e in champion 
+        //- link(rel="preload", as="image", href="../images/SET7/protrait/"+e._id+".png")
     
 
 block content 
-    //- span(class="champions", style="display:none") #{champion}
-    .body
+    .body(style="display:none")
         .wrapper 
             .board 
 
@@ -22,7 +25,7 @@ block content
                     .level 
                         .level_num 
                             //- p1 Lvl. 1 
-                            p1 Your mum here
+                            p1(class="levelDisplay") Lvl.
                         .level_select
                             input(type="range", min="1", max="11", class="slider", value="1")
                         
@@ -30,19 +33,19 @@ block content
                         .rollChanceWrapper
                             .chance-1 
                                 img(src="../images/cost gem/1chance.png")
-                                p1 45%
+                                p1(class="chance") 100%
                             .chance-2
                                 img(src="../images/cost gem/2chance.png")
-                                p1 33%
+                                p1(class="chance") 0%
                             .chance-3
                                 img(src="../images/cost gem/3chance.png")
-                                p1 20%
+                                p1(class="chance") 0%
                             .chance-4 
                                 img(src="../images/cost gem/4chance.png")
-                                p1 2%
+                                p1(class="chance") 0%
                             .chance-5
                                 img(src="../images/cost gem/5chance.png")
-                                p1 0%
+                                p1(class="chance") 0%
                     .gold 
                         img(src="../images/UI_asset/goldIcon.png")
                         p1 50
@@ -60,7 +63,7 @@ block content
                                 p1 4
                         .refresh 
                             img(src="../images/UI_asset/rerollButton.png")
-                            p(class="top") Refresh
+                            p(class="top") Refresh(D)
                             .text 
                                 img(src="../images/UI_asset/goldIcon.png")
                                 p1 2
@@ -74,11 +77,12 @@ block content
 
                         //-     .outline
                         //-         .portrait
+                        //-             img(class="portaitIMG", src="../images/SET7/protrait/"+data._id+".png")
 
-                        //-             .trait 
-                        //-                 .traitIMG
-                        //-                     img(src="../images/UI_asset/traitBG.png", class="bg")
-                        //-                     img(src="../images/SET7/traits/Bard.svg", class="icon")
+                        //-          .trait 
+                        //-             .traitIMG
+                        //-                 img(src="../images/UI_asset/traitBG.png", class="bg")
+                        //-                 img(src="../images/SET7/traits/Bard.svg", class="icon")
                         //-                 p Bard 
                                     
                         //-         .description 

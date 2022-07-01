@@ -1,28 +1,24 @@
 
 
-// slot.appendChild(craeteSlot(Champions["TFT7_Aatrox"]));
-// slot.appendChild(craeteSlot(Champions["TFT7_Zoe"]));
-// slot.appendChild(craeteSlot(Champions["TFT7_Idas"]));
-// slot.appendChild(craeteSlot(Champions["TFT7_AoShin"]));
-// slot.appendChild(craeteSlot(Champions["TFT7_Yone"]));
-
-
-
 function createSlotBlock(data){
     let block = createDiv({"class": "block_champion"});
 
     let border = createDiv({"class": "border"});
     block.appendChild(border);
 
-    let gem = createDiv({"class": "gem"});
-    data.cost !== 1 ? gem.appendChild(createImg({"src":data.gemURL})) : {};
+    // let gem = createDiv({"class": "gem"});
+    // data.cost !== 1 ? gem.appendChild(createImg({"src":data.gemURL})) : {};
 
-    block.appendChild(gem);
+    // block.appendChild(gem);
 
-    let outline = createDiv({"class": "outline"});
+    let outline = createDiv({"class": "outline cost-" + data.cost});
 
-    let portrait = createDiv({"class": "portrait"});
-    portrait.style.backgroundImage = "url(../images/SET7/protrait/"+data._id+".png)";
+    let portrait = createDiv({"class": "portrait bordercost-" + data.cost});
+    let portaitImg = createDiv({
+        "class": "portaitIMG", 
+        "background-image": "url('../images/SET7/protrait/"+data._id+".png')"
+    })
+    portrait.appendChild(portaitImg);
     if("trait" in data){
         for(let i = 0; i < data.trait.length; i++){
             let trait = createDiv({"class": "trait"});
@@ -36,7 +32,7 @@ function createSlotBlock(data){
             traitIMG.appendChild(bg);
             traitIMG.appendChild(icon);
 
-            let p = document.createElement("p");
+            let p = document.createElement("span");
             p.innerText = data.trait[i].split("_")[1];
 
             trait.appendChild(traitIMG);
@@ -48,7 +44,7 @@ function createSlotBlock(data){
 
     outline.appendChild(portrait);
 
-    let description = createDiv({"class": "description"});
+    let description = createDiv({"class": "description cost-" + data.cost});
     
     let name = createDiv({"class": "name"});
     let p1 = document.createElement("p");
@@ -68,8 +64,12 @@ function createSlotBlock(data){
     
     outline.appendChild(description);
 
-
     block.appendChild(outline);
+
+    let gem = createDiv({"class": "gem"});
+    data.cost !== 1 ? gem.appendChild(createImg({"src":data.gemURL})) : {};
+    block.appendChild(gem);
+
 
     return block;
 }
@@ -78,6 +78,7 @@ function createDiv(data){
     let div = document.createElement("div");
     if("class" in data) div.className = data["class"];
     if("innerText" in data) div.innerText = data["innerText"];
+    if("background-image" in data) div.style.backgroundImage = data["background-image"];
 
     return div;
 }

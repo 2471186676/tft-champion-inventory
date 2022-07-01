@@ -63,13 +63,16 @@
     border-bottom: 33px solid rgb(0, 0, 0);
     border-right: 25px solid transparent;
     z-index: 1;
+
+    height: 7px;
 }
 
 .rollChanceWrapper{
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(5, 50px);
+    gap: 0px;
+
     padding-left: 150px;
-    gap: 20px;
     height: 100%;
     color: white;
 
@@ -79,7 +82,7 @@
 
 .rollChanceWrapper > div{
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     font-size: smaller;
     gap: 3px;
@@ -221,6 +224,10 @@
     justify-content: center;
     gap: 10px;
     padding: 3px;
+}
+
+.body{
+    display: flex !important;
 }
 
 
