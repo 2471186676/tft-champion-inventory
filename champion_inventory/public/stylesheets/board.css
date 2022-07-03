@@ -1,0 +1,122 @@
+.statistic {
+	display: flex;
+	flex-direction: column;
+}
+
+.statistic > div {
+	position: relative;
+	height: 25%;
+	padding: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	background-color: aliceblue;
+}
+
+.statistic .correct::after,
+.statistic .incorrect::after,
+.statistic .miss::after,
+.statistic .reroll::after {
+	content: " ";
+	position: absolute;
+	height: 3px;
+	width: 90%;
+	left: 5%;
+	bottom: 0px;
+	background-color: black;
+    border-radius: 5px;
+}
+
+.correct p1{
+    color: green;
+}
+
+.incorrect p1{
+    color: rgb(182, 182, 24);
+}
+
+.miss p1{
+    color: red;
+}
+
+.statistic > div > p2 {
+	font-size: 2rem;
+}
+
+.statistic button {
+	height: 100%;
+	width: 100%;
+	background-color: rgb(95, 158, 160);
+}
+
+.statistic button:hover {
+	filter: brightness(130%);
+}
+
+.statistic button:active {
+	filter: brightness(80%);
+}
+
+
+.interface{
+    padding: 5px;
+    display: grid;
+    gap: 5px;
+    grid-template-rows: 10% 1fr;
+}
+
+.interface .search_bar{
+    border: 2px solid black;
+
+    display: grid;
+    grid-template-columns: 1fr 15% 15%;
+    gap: 0.5rem;
+    padding: 5px;
+}
+
+.textBar{
+    position: relative;
+}
+
+.textBar input{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.textBar button{
+    position: absolute;
+    right: 1rem;
+    top: 12.5%;
+    height: 75%;
+    width:  3rem;
+    
+    border: 2px solid black;
+}
+
+
+.setCost .cost{
+    width: 100%;
+    height: 100%;
+}
+
+.setTrait .trait{
+    width: 100%;
+    height: 100%;
+}
+
+.interface .select_champ{
+    border: 2px solid black;
+    overflow-y: scroll;
+
+    /* hide scroll bar, it looks ugly */
+    -ms-overflow-style: none;  
+    scrollbar-width: none;
+}
+
+.interface .select_champ::-webkit-scrollbar{
+    display: hidden;
+}
+
+

@@ -1,9 +1,12 @@
 .block_champion{
     position: relative;
     box-sizing: border-box;
-    z-index: 1;
     color: white;
+
+    background-position: center;
+    background-size: contain;
 }
+
 
 .border{
     position: absolute;
@@ -118,9 +121,6 @@
     padding-left: 5px;
     padding-right: 4px;
     font-weight: bolder;
-/* 
-    background: rgb(21,36,49);
-    background: linear-gradient(21deg, rgba(21,36,49,1) 33%, rgba(38,48,57,1) 70%);  */
 }
 
 .description .cost{

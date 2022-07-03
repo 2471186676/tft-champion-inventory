@@ -1,7 +1,7 @@
 
 
 function createSlotBlock(data){
-    let block = createDiv({"class": "block_champion"});
+    let block = createDiv({"class": "block_champion "+data._id});
 
     let border = createDiv({"class": "border"});
     block.appendChild(border);
