@@ -3,6 +3,7 @@ extends layout
 block script 
     script(src="/javascripts/createSlot.js", type="module") 
     script(src="/javascripts/slotManager.js", champions = champion) 
+    script(src="/javascripts/rerollUI.js", champions = champion) 
 
 block css 
     link(rel="stylesheet", href="/stylesheets/rerollSim.css")
@@ -10,7 +11,9 @@ block css
     link(rel="stylesheet", href="/stylesheets/championBlock.css")
     link(rel="stylesheet", href="/stylesheets/board.css")
     link(rel='stylesheet', href='/stylesheets/champion_select.css')
+    link(rel='stylesheet', href='/stylesheets/blockColor.css')
     link(rel='stylesheet', href='/stylesheets/cost.css')
+
 
 
 block link
@@ -28,20 +31,20 @@ block content
                         p2.correct_num 12
                     .incorrect 
                         p1 Incorrect: 
-                        p2.incorrect_num 0
+                        p2.incorrect_num 99
                     .miss 
                         p1 Missed: 
-                        p2.miss_num 0
+                        p2.miss_num 5314
                     .reroll
                         p1 Refresh: 
-                        p2.reroll_num 0 
+                        p2.reroll_num 69
                     .start_wrapper
                         button(class="start") Start
                 .interface
                     .search_bar 
                         .textBar 
                             input.bar(type="text", placeholder="Search by name...")
-                            button(class="clear") Clear
+
 
                         .setCost
                             select(class="cost")
@@ -57,15 +60,21 @@ block content
                                 option(value="") Trait
                                 for trait in traits     
                                     option(value=trait.name) #{trait.name}
+                        
+                        .reset 
+                            button(class="reset_button") Reset
 
-                    .select_champ
-                        if(champion)
-                            each e in champion 
-                                div.block(class= ("cost-"+e.cost), id=e._id)
-                                    span(class=("cost-"+e.cost)) $#{e.cost}
-                                    img(src=(e.portraitURL), alt=e.name) 
-                                    p1= e.name 
-                                    div(data-id=e.id, data-trait=e.trait, data-name=e.name, data-cost=e.cost)
+                    .champ_container
+                        .select
+                            if(champion)
+                                each e in champion 
+                                    div.block(class= ("cost-"+e.cost +" "+e._id))
+                                        span(class=("cost-"+e.cost)) $#{e.cost}
+                                        img(src=(e.portraitURL), alt=e.name) 
+                                        p1= e.name 
+                                        div(data-id=e.id, data-trait=e.trait, data-name=e.name, data-cost=e.cost)
+
+                        .selected 
 
             .shop
                 .upper 

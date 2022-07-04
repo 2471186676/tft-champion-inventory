@@ -1,20 +1,20 @@
-.cost-1{
+.champ_container .cost-1{
     border-color: #808080;
     background-color: #c8c7c7;
 }
-.cost-2{
+.champ_container .cost-2{
     border-color: #11b288;
     background-color: rgb(79, 228, 188);
 }
-.cost-3{
+.champ_container .cost-3{
     border-color: #207ac7;
     background-color: #258fed;
 }
-.cost-4, .cost-8{
+.champ_container .cost-4, .champ_container .cost-8{
     border-color: #c440da;
     background-color: #bf70cd;
 }
-.cost-5, .cost-10{
+.champ_container .cost-5, .champ_container .cost-10{
     border-color: #ffb93b;
     background-color: #f8dfb1;
 }

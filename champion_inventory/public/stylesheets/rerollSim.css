@@ -8,18 +8,22 @@
 .wrapper{
     position: relative;
 
-    height: 90vh;
+    height: 95vh;
     width: 1365px;
     min-width: 1365px;
     background-color: #5a5d64;
     margin-bottom: 50px;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .board{
     position: relative;
     border: 1px solid black;
-    height: 68%;
+    height: 80%;
     width: 100%;
+    max-height: 100%;
     box-sizing: border-box;
 
     display: grid;
@@ -35,7 +39,7 @@
 }
 
 .interface{
-    border: 3px solid yellow;
+    border: 3px solid rgb(63, 63, 63);
     box-sizing: border-box;
 }
 

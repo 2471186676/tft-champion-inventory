@@ -1,6 +1,8 @@
 .statistic {
 	display: flex;
 	flex-direction: column;
+
+    max-height: 100%;
 }
 
 .statistic > div {
@@ -63,13 +65,14 @@
     display: grid;
     gap: 5px;
     grid-template-rows: 10% 1fr;
+    max-height: 100%;
 }
 
 .interface .search_bar{
     border: 2px solid black;
 
     display: grid;
-    grid-template-columns: 1fr 15% 15%;
+    grid-template-columns: 1fr 10% 10% 10%;
     gap: 0.5rem;
     padding: 5px;
 }
@@ -85,17 +88,6 @@
     box-sizing: border-box;
 }
 
-.textBar button{
-    position: absolute;
-    right: 1rem;
-    top: 12.5%;
-    height: 75%;
-    width:  3rem;
-    
-    border: 2px solid black;
-}
-
-
 .setCost .cost{
     width: 100%;
     height: 100%;
@@ -106,8 +98,38 @@
     height: 100%;
 }
 
-.interface .select_champ{
+.reset .reset_button{
+    border: 1px solid #8f8f9d;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    background-color: #e9e9ed;
+}
+
+.reset .reset_button:hover{
+    filter: brightness(85%);
+}
+
+.interface .champ_container{
     border: 2px solid black;
+    overflow-y: scroll;
+    height: 100%;
+    max-height: 100%;
+
+    /* hide scroll bar, it looks ugly */
+    -ms-overflow-style: none;  
+    scrollbar-width: none;
+
+    display: grid;
+    grid-template: 1fr 100px / 1fr;
+    gap: 10px;
+}
+
+.interface .champ_container::-webkit-scrollbar, .champ_container .select{
+    display: hidden;
+}
+
+.champ_container .select{
     overflow-y: scroll;
 
     /* hide scroll bar, it looks ugly */
@@ -115,8 +137,23 @@
     scrollbar-width: none;
 }
 
-.interface .select_champ::-webkit-scrollbar{
-    display: hidden;
+.champ_container .selected{
+    border-top: 2px solid black;
+    box-sizing: border-box;
+
+    overflow: auto;
+
+    display: flex;
+    flex: wrap;
+}
+
+.selected .block{
+    min-width: 50px;
+    max-width: 50px;
+}
+
+.block:hover{
+    cursor: pointer;
 }
 
 
