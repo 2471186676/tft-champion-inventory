@@ -2,6 +2,41 @@ let getChampElems = document.getElementsByClassName("champ_container")[0];
 let sortBy = document.getElementsByClassName("sortBy")[0];
 let searchBar = document.getElementsByClassName("searchBar")[0];
 
+
+let sorting = (e) => {
+	let champions = Object.entries(getChampElems.childNodes);
+	// check for bad data
+	if (champions[0][1].id == undefined) champions.splice(0, 1);
+	// remove add new button
+	for(let i = 0; i < champions.length; i++){
+		if(champions[i][1].id == "addNew"){
+			champions.splice(i,1);
+		}
+	}
+
+	// remove all child node to remake in selected sort method
+	getChampElems.innerHTML = "";
+
+	// sorting method
+	try {
+		if (typeof e === "string") {
+			e === "name"
+				? (champions = byName(champions))
+				: (champions = byCost(champions));
+		} else if ("target" in e) {
+			e.target.value === "name"
+				? (champions = byName(champions))
+				: (champions = byCost(champions));
+		}
+		champions.forEach((champ) => {
+			getChampElems.appendChild(champ);
+		});
+	} catch (e) {
+		console.log(e);
+	}
+	addNewChampLink();
+};
+
 let byName = (array) => {
 	let sortedElement = [];
 
@@ -45,40 +80,6 @@ let byCost = (array) => {
 	}
 
 	return sortedElement;
-};
-
-let sorting = (e) => {
-	let champions = Object.entries(getChampElems.childNodes);
-	// check for bad data
-	if (champions[0][1].id == undefined) champions.splice(0, 1);
-	// remove add new button
-	for(let i = 0; i < champions.length; i++){
-		if(champions[i][1].id == "addNew"){
-			champions.splice(i,1);
-		}
-	}
-
-	// remove all child node to remake in selected sort method
-	getChampElems.innerHTML = "";
-
-	// sorting method
-	try {
-		if (typeof e === "string") {
-			e === "name"
-				? (champions = byName(champions))
-				: (champions = byCost(champions));
-		} else if ("target" in e) {
-			e.target.value === "name"
-				? (champions = byName(champions))
-				: (champions = byCost(champions));
-		}
-		champions.forEach((champ) => {
-			getChampElems.appendChild(champ);
-		});
-	} catch (e) {
-		console.log(e);
-	}
-	addNewChampLink();
 };
 
 searchBar.addEventListener("input", (e) => {
